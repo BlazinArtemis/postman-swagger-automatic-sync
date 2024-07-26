@@ -15,20 +15,45 @@ This script can be run as a cron job that checks your swagger.json links for any
 
 ### Running the Script
 
+0. **Set the API Key as an Environment Variable**
+
+   You can set the Postman API key as an environment variable named `POSTMAN_API_KEY`.
+
+   #### On Windows
+   ```sh
+   set POSTMAN_API_KEY=your_postman_api_key
+   ```
+
+   #### On macOS/Linux
+   ```sh
+   export POSTMAN_API_KEY=your_postman_api_key
+   ```
+
+
 1. **Add a New Entry with a New Collection**:
    ```sh
-   python main_script.py --link <swagger_json_link> --api_key <postman_api_key>
+   python main_script.py --link <swagger_json_link> 
    ```
 
 2. **Add a New Entry with an Existing Collection**:
    ```sh
-   python main_script.py --link <swagger_json_link> --api_key <postman_api_key> --collection_id <existing_collection_id>
+   python main_script.py --link <swagger_json_link>  --collection_id <existing_collection_id>
    ```
 
-3. **Run the Main Code** (requires the API key to be already saved):
+3. **Run the Main Code** (requires the API key to be already set):
    ```sh
    python main_script.py
    ```
+
+4 **Alternatively, Store the API Key in a File**
+
+   If you don't want to use an environment variable, you can store the API key in a file named `api_key.txt` in the same directory as the script. The script will prompt you to enter and save the API key if it doesn't find it in the environment variables or the file.
+
+   - **Create the `api_key.txt` File Manually**:
+     - Create a file named `api_key.txt`.
+     - Open the file and paste your Postman API key inside it.
+     - Save and close the file.
+
 **Note, If you have already inputted your API Key once, you can run without including --api-key**
 
 ## How to Add to Cron Job
@@ -55,6 +80,11 @@ To continually check for changes to your Swagger JSON links, you can set up a cr
 - Write tests to ensure the script works as expected.
 - Write a function and argument to delete a link from the list.
 - Maybe rather than create a new collection with the updated tests, edit the current collection. ( Fear is Back-Up, Will think about this later. )
+- ~~ Allow Postman Key to work with enviroment variables as the file storing is not ideal.~~ - DONE 
+
+## Shoutouts
+- @dftaiwo
+
 
 ## Due to Postman, Version of OpenAPI or Swagger has to be there as well as the version number of your API
 The Swagger JSON should include the `openapi` or `swagger` field and the version number of your API. For example:
@@ -78,7 +108,7 @@ The Swagger JSON should include the `openapi` or `swagger` field and the version
 3. **Hashing**: The script calculates a hash of the Swagger JSON content to detect changes.
 4. **Functions**:
    - `save_api_key(api_key)`: Saves the API key to a file.
-   - `load_api_key()`: Loads the API key from a file.
+   - `load_api_key()`: Loads the API key from an environment variable or a file. Prompts the user to input the key if not found.
    - `initialize_links_file()`: Initializes the links file if it doesn't exist.
    - `load_links()`: Loads the links from the file.
    - `save_links(links)`: Saves the links to the file.

@@ -20,6 +20,8 @@ UPDATED_JSON_FILE = 'updated.json'
 
 def save_api_key(api_key):
     """
+
+    --- Now Depracated ---
     Saves the API key to a file.
 
     Args:
@@ -31,16 +33,29 @@ def save_api_key(api_key):
 
 def load_api_key():
     """
-    Loads the API key from a file.
+    Loads the API key from an environment variable or a file.
+    If not found, prompts the user to input the API key and saves it to a file.
 
     Returns:
-        str: The Postman API key, or None if the file doesn't exist.
+        str: The Postman API key.
     """
+    api_key = os.getenv('POSTMAN_API_KEY')
+    if api_key:
+        logging.info("API key loaded from environment variable.")
+        return api_key
+
     if os.path.exists(API_KEY_FILE):
         with open(API_KEY_FILE, 'r') as file:
-            return file.read().strip()
-    logging.error("API key not provided and no API key stored in the system. Please add --api_key to add yor postman link")
-    sys.exit()
+            api_key = file.read().strip()
+            if api_key:
+                logging.info("API key loaded from file.")
+                return api_key
+
+    logging.error("No API key found. Please set the POSTMAN_API_KEY environment variable or provide the API key.")
+    api_key = input("Enter your Postman API key: ").strip()
+    save_api_key(api_key)
+    return api_key
+
     
 
 
@@ -311,21 +326,15 @@ def new_with_existing_collection(api_key, link, old_collection_uid):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Manage Postman collections with Swagger JSON links.")
     parser.add_argument("--link", help="The URL of the Swagger JSON.")
-    parser.add_argument("--api_key", help="The Postman API key.")
+    # parser.add_argument("--api_key", help="The Postman API key.") Now Depracated
     parser.add_argument("--collection_id", help="The ID of the existing Postman collection.")
 
     args = parser.parse_args()
 
     initialize_links_file()
+    api_key = load_api_key()
 
-
-    if args.link or args.api_key:
-        if args.api_key:
-            save_api_key(args.api_key)
-            api_key = load_api_key()
-        else: 
-            api_key = load_api_key()
-
+    if args.link:
         links = load_links()
         existing_entry = next((entry for entry in links if entry['link'] == args.link), None)
         
@@ -337,7 +346,6 @@ if __name__ == "__main__":
             else:
                 new_entry(api_key, args.link)
     else:
-        api_key = load_api_key()
         if api_key:
             main_code()
         else:
