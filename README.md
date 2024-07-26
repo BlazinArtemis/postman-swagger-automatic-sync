@@ -2,14 +2,16 @@
 # Postman x Swagger Automatic Sync Manager
 
 Ever wanted to automatically update your Postman Collcetions once there is a change on your swagger file ( while retaining your tests ). 
-This sript can be run as a cron job that checks your swagger.json links for any changes in your api and If a change is noticed, It creates a new Postman Collection with all your tests intact. 
+This script can be run as a cron job that checks your swagger.json links for any changes in your api and If a change is noticed, It creates a new Postman Collection with all your tests intact. 
 
 ## How to Run It
 
 ### Prerequisites
 
 - Python 3.x
-- `requests` library (`pip install requests`)
+```sh
+- pip install -r requirements.txt
+```
 
 ### Running the Script
 
@@ -27,6 +29,7 @@ This sript can be run as a cron job that checks your swagger.json links for any 
    ```sh
    python main_script.py
    ```
+**Note, If you have already inputted your API Key once, you can run without including --api-key**
 
 ## How to Add to Cron Job
 
@@ -109,6 +112,3 @@ The script uses Python's logging module to provide detailed logs of its operatio
 ## Conclusion
 
 This script automates the management of Postman collections using Swagger JSON links ensuring all your tests are intact. By setting up a cron job, you can ensure that your collections are always up-to-date with the latest changes in your Swagger definitions.
-```
-
-
