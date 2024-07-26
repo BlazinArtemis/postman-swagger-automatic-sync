@@ -83,7 +83,8 @@ To continually check for changes to your Swagger JSON links, you can set up a cr
 - ~~ Allow Postman Key to work with enviroment variables as the file storing is not ideal.~~ - DONE 
 
 ## Shoutouts
-- @dftaiwo
+- [@dftaiwo](https://github.com/dftaiwo)
+- [@detunjiSamuel](https://github.com/detunjiSamuel)
 
 
 ## Due to Postman, Version of OpenAPI or Swagger has to be there as well as the version number of your API
