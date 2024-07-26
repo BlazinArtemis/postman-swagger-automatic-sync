@@ -4,6 +4,19 @@
 Ever wanted to automatically update your Postman Collcetions once there is a change on your swagger file ( while retaining your tests ). 
 This script can be run as a cron job that checks your swagger.json links for any changes in your api and If a change is noticed, It creates a new Postman Collection with all your tests intact. 
 
+## How the tool works
+
+This tool manages a list of Swagger JSON links, continuously checking for changes and updating Postman collections accordingly.
+
+## Key Features:
+- Link Management: Add Swagger JSON links to a list by running the script with the --link option. These links are stored in a file for continuous monitoring.
+- Change Detection: The tool periodically checks each stored link for changes in the Swagger JSON file.
+- Postman Collection Updates: Upon detecting changes, the tool updates the corresponding Postman collection:
+    - A new Postman collection is created with the updated Swagger endpoints.
+    - Tests from the old collection are transferred to the new collection.
+    - The updated collection, containing both new endpoints and existing tests, is saved.
+
+
 ## How to Run It
 
 ### Prerequisites
@@ -29,6 +42,7 @@ This script can be run as a cron job that checks your swagger.json links for any
    export POSTMAN_API_KEY=your_postman_api_key
    ```
 
+### Three Ways of running it
 
 1. **Add a New Entry with a New Collection**:
    ```sh
