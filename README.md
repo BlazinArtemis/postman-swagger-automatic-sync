@@ -1,7 +1,7 @@
 
 # Postman x Swagger Automatic Sync Manager
 
-Ever wanted to automatically update your Postman Collcetions once there is a change on your swagger file ( while retaining your tests ). 
+Ever wanted to automatically update your Postman Collections once there is a change on your swagger file ( while retaining your tests ). 
 This script can be run as a cron job that checks your swagger.json links for any changes in your api and If a change is noticed, It creates a new Postman Collection with all your tests intact. 
 
 ## How the tool works
