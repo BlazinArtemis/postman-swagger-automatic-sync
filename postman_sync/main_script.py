@@ -5,9 +5,11 @@ import logging
 import argparse
 import requests
 from datetime import datetime
-from helper_functions import cleanup_collection, get_collection_json, create_collection_json
-from endpoint_transfer import extract_endpoints, update_endpoints, main
 import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from postman_sync.helper_functions import cleanup_collection, get_collection_json, create_collection_json
+from postman_sync.endpoint_transfer import extract_endpoints, update_endpoints, main as update_main
+
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -20,8 +22,6 @@ UPDATED_JSON_FILE = 'updated.json'
 
 def save_api_key(api_key):
     """
-
-    --- Now Depracated ---
     Saves the API key to a file.
 
     Args:
@@ -55,9 +55,6 @@ def load_api_key():
     api_key = input("Enter your Postman API key: ").strip()
     save_api_key(api_key)
     return api_key
-
-    
-
 
 def initialize_links_file():
     """
@@ -102,6 +99,7 @@ def hash_json(data):
     json_str = json.dumps(data, sort_keys=True)
     return hashlib.sha256(json_str.encode()).hexdigest()
 
+
 def create_collection_from_file(json_file_path, api_key):
     """
     Creates a Postman collection from a JSON file and returns the collection ID.
@@ -115,6 +113,12 @@ def create_collection_from_file(json_file_path, api_key):
     """
     with open(json_file_path, 'rb') as file:
         json_data = json.load(file)
+
+    # Modify the collection name to include "Latest" and the datetime
+    current_datetime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    if 'info' in json_data['collection'] and 'name' in json_data['collection']['info']:
+        original_name = json_data['collection']['info']['name']
+        json_data['collection']['info']['name'] = f"{original_name} Latest {current_datetime}"
 
     import_url = "https://api.getpostman.com/collections"
     headers = {
@@ -181,7 +185,7 @@ def main_code():
                         with open(OLD_JSON_FILE, 'w') as old_file:
                             json.dump(old_collection_json, old_file, indent=4)
 
-                        main(OLD_JSON_FILE, NEW_JSON_FILE, UPDATED_JSON_FILE)
+                        update_main(OLD_JSON_FILE, NEW_JSON_FILE, UPDATED_JSON_FILE)
 
                         latest_collection_id = create_collection_from_file(UPDATED_JSON_FILE, api_key)
 
@@ -300,7 +304,7 @@ def new_with_existing_collection(api_key, link, old_collection_uid):
     logging.info(f"Old collection JSON stored in {OLD_JSON_FILE}")
 
     # Run the main function from endpoint_transfer.py to update the collection
-    main(OLD_JSON_FILE, NEW_JSON_FILE, UPDATED_JSON_FILE)
+    update_main(OLD_JSON_FILE, NEW_JSON_FILE, UPDATED_JSON_FILE)
     logging.info(f"Updated JSON stored in {UPDATED_JSON_FILE}")
 
     # Create a new collection with the updated JSON
@@ -322,12 +326,10 @@ def new_with_existing_collection(api_key, link, old_collection_uid):
     save_links(links)
     logging.info(f"New entry added to links.json: {new_entry}")
 
-
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Manage Postman collections with Swagger JSON links.")
-    parser.add_argument("--link", help="The URL of the Swagger JSON.")
-    # parser.add_argument("--api_key", help="The Postman API key.") Now Depracated
-    parser.add_argument("--collection_id", help="The ID of the existing Postman collection.")
+    parser.add_argument("-l", "--link", help="The URL of the Swagger JSON.")
+    parser.add_argument("-c", "--collection_id", help="The ID of the existing Postman collection.")
 
     args = parser.parse_args()
 
@@ -350,3 +352,6 @@ if __name__ == "__main__":
             main_code()
         else:
             logging.error("API key not provided and no API key stored in the system.")
+
+if __name__ == "__main__":
+    main()

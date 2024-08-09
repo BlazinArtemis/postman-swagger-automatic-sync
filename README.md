@@ -1,7 +1,7 @@
 
 # Postman x Swagger Automatic Sync Manager
 
-Ever wanted to automatically update your Postman Collcetions once there is a change on your swagger file ( while retaining your tests ). 
+Ever wanted to automatically update your Postman Collections once there is a change on your swagger file ( while retaining your tests ). 
 This script can be run as a cron job that checks your swagger.json links for any changes in your api and If a change is noticed, It creates a new Postman Collection with all your tests intact. 
 
 ## How the tool works
@@ -47,11 +47,19 @@ This tool manages a list of Swagger JSON links, continuously checking for change
 1. **Add a New Entry with a New Collection**:
    ```sh
    python main_script.py --link <swagger_json_link> 
+
+   or 
+
+   python main_script.py --l <swagger_json_link> 
    ```
 
 2. **Add a New Entry with an Existing Collection**:
    ```sh
    python main_script.py --link <swagger_json_link>  --collection_id <existing_collection_id>
+
+   or 
+
+   python main_script.py --l <swagger_json_link>  --c <existing_collection_id>
    ```
 
 3. **Run the Main Code** (requires the API key to be already set):
@@ -59,7 +67,7 @@ This tool manages a list of Swagger JSON links, continuously checking for change
    python main_script.py
    ```
 
-4 **Alternatively, Store the API Key in a File**
+4 **Alternatively, Store the API Key in a File (Not Safe )**
 
    If you don't want to use an environment variable, you can store the API key in a file named `api_key.txt` in the same directory as the script. The script will prompt you to enter and save the API key if it doesn't find it in the environment variables or the file.
 

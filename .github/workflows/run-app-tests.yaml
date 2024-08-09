@@ -1,0 +1,79 @@
+name: Postman Sync Test
+env:
+  POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  postman-sync-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Start main.py in v1
+        id: run_v1
+        run: |
+          nohup python v1/main.py &> server_output_v1.log &
+          echo $! > pid_v1.txt
+
+      - name: Wait for Server to Start
+        run: sleep 10  # Wait a bit to ensure the server starts
+
+      - name: Extract URL from Logs
+        id: extract_url
+        run: |
+          URL=$(grep -o 'http://0.0.0.0:8000' server_output_v1.log | head -1)
+          echo "URL=$URL" >> $GITHUB_ENV
+
+      - name: Run First Command
+        run: |
+          python main_script.py --link ${URL}/openapi.json --collection_id ${{ secrets.COLLECTION_ID }}
+
+      - name: Stop main.py in v1
+        run: |
+          kill $(cat pid_v1.txt)
+
+      - name: Start main.py in v2
+        id: run_v2
+        run: |
+          nohup python v2/main.py &> server_output_v2.log &
+          echo $! > pid_v2.txt
+
+      - name: Wait for Server to Start in v2
+        run: sleep 10  # Wait to ensure the server starts
+
+      - name: Run main_script.py Again
+        run: |
+          python main_script.py
+
+      - name: Clear links.json
+        run: |
+          echo "[]" > links.json
+
+      - name: Run Final Command
+        run: |
+          python main_script.py --link ${URL}/openapi.json
+
+      - name: Clear All Files
+        run: |
+          rm -rf links.json/
+          rm -rf new.json/ 
+          rm -rf old.json/
+          rm -rf updated.json
+
+      - name: Run Pytest
+        run: |
+          pytest --maxfail=1 --disable-warnings

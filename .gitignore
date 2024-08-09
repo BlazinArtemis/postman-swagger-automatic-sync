@@ -1,1 +1,12 @@
 /__pycache__
+/tests/__pycache__
+/postman_sync/__pycache__
+/v1/__pycache__
+/v2/__pycache__
+/.pytest_cache
+/setup.py
+/docs/*
+/docs
+/dist
+/build
+/postman_sync.egg-info

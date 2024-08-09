@@ -1,5 +1,3 @@
-requests
-argparse
 fastapi
 sqlalchemy
 uvicorn

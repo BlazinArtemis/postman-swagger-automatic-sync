@@ -1,0 +1,5 @@
+include README.md
+include requirements.txt
+include docs/index.md
+recursive-include tests *.py
+recursive-include postman_sync *.py

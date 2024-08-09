@@ -1,0 +1,1298 @@
+{
+    "collection": {
+        "info": {
+            "_postman_id": "70dbe651-5a97-4167-a7a3-6f3f32e3f0b6",
+            "name": "FastAPI",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+            "updatedAt": "2024-08-09T09:17:48.000Z",
+            "createdAt": "2024-08-09T09:17:48.000Z",
+            "lastUpdatedBy": "25376308",
+            "uid": "25376308-70dbe651-5a97-4167-a7a3-6f3f32e3f0b6"
+        },
+        "item": [
+            {
+                "name": "bookmarks",
+                "item": [
+                    {
+                        "name": "{bookmark_id}",
+                        "item": [
+                            {
+                                "name": "tags",
+                                "item": [
+                                    {
+                                        "name": "{tag_id}",
+                                        "item": [
+                                            {
+                                                "name": "Add Tag To Bookmark",
+                                                "id": "88123e19-94df-4867-b7cf-059cbb6656dc",
+                                                "protocolProfileBehavior": {
+                                                    "disableBodyPruning": true
+                                                },
+                                                "request": {
+                                                    "method": "POST",
+                                                    "header": [
+                                                        {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "url": {
+                                                        "raw": "{{baseUrl}}/bookmarks/:bookmark_id/tags/:tag_id",
+                                                        "host": [
+                                                            "{{baseUrl}}"
+                                                        ],
+                                                        "path": [
+                                                            "bookmarks",
+                                                            ":bookmark_id",
+                                                            "tags",
+                                                            ":tag_id"
+                                                        ],
+                                                        "variable": [
+                                                            {
+                                                                "id": "29e93df2-044c-4b26-a2f7-a299bebec64b",
+                                                                "key": "bookmark_id",
+                                                                "value": "<integer>",
+                                                                "description": "(Required) "
+                                                            },
+                                                            {
+                                                                "id": "2fc96b2b-8b58-4987-93df-f87234ef9586",
+                                                                "key": "tag_id",
+                                                                "value": "<integer>",
+                                                                "description": "(Required) "
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "response": [
+                                                    {
+                                                        "id": "1d7a538f-e353-4563-ae4f-40cc62914762",
+                                                        "name": "Successful Response",
+                                                        "originalRequest": {
+                                                            "method": "POST",
+                                                            "header": [
+                                                                {
+                                                                    "key": "Accept",
+                                                                    "value": "application/json"
+                                                                }
+                                                            ],
+                                                            "url": {
+                                                                "raw": "{{baseUrl}}/bookmarks/:bookmark_id/tags/:tag_id",
+                                                                "host": [
+                                                                    "{{baseUrl}}"
+                                                                ],
+                                                                "path": [
+                                                                    "bookmarks",
+                                                                    ":bookmark_id",
+                                                                    "tags",
+                                                                    ":tag_id"
+                                                                ],
+                                                                "variable": [
+                                                                    {
+                                                                        "key": "bookmark_id"
+                                                                    },
+                                                                    {
+                                                                        "key": "tag_id"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "status": "OK",
+                                                        "code": 200,
+                                                        "_postman_previewlanguage": "json",
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "cookie": [],
+                                                        "responseTime": null,
+                                                        "body": "{}",
+                                                        "uid": "25376308-1d7a538f-e353-4563-ae4f-40cc62914762"
+                                                    },
+                                                    {
+                                                        "id": "9e1dd067-d43d-4e00-b9c8-e7f72d48fdee",
+                                                        "name": "Validation Error",
+                                                        "originalRequest": {
+                                                            "method": "POST",
+                                                            "header": [
+                                                                {
+                                                                    "key": "Accept",
+                                                                    "value": "application/json"
+                                                                }
+                                                            ],
+                                                            "url": {
+                                                                "raw": "{{baseUrl}}/bookmarks/:bookmark_id/tags/:tag_id",
+                                                                "host": [
+                                                                    "{{baseUrl}}"
+                                                                ],
+                                                                "path": [
+                                                                    "bookmarks",
+                                                                    ":bookmark_id",
+                                                                    "tags",
+                                                                    ":tag_id"
+                                                                ],
+                                                                "variable": [
+                                                                    {
+                                                                        "key": "bookmark_id"
+                                                                    },
+                                                                    {
+                                                                        "key": "tag_id"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                                        "code": 422,
+                                                        "_postman_previewlanguage": "json",
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "cookie": [],
+                                                        "responseTime": null,
+                                                        "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                                        "uid": "25376308-9e1dd067-d43d-4e00-b9c8-e7f72d48fdee"
+                                                    }
+                                                ],
+                                                "uid": "25376308-88123e19-94df-4867-b7cf-059cbb6656dc"
+                                            },
+                                            {
+                                                "name": "Remove Tag From Bookmark",
+                                                "id": "50f20c3c-7cdc-483d-b6dd-f672ddcd9578",
+                                                "protocolProfileBehavior": {
+                                                    "disableBodyPruning": true
+                                                },
+                                                "request": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                        {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "url": {
+                                                        "raw": "{{baseUrl}}/bookmarks/:bookmark_id/tags/:tag_id",
+                                                        "host": [
+                                                            "{{baseUrl}}"
+                                                        ],
+                                                        "path": [
+                                                            "bookmarks",
+                                                            ":bookmark_id",
+                                                            "tags",
+                                                            ":tag_id"
+                                                        ],
+                                                        "variable": [
+                                                            {
+                                                                "id": "bf866f6c-7ae5-43b7-b896-82cbf5a2c961",
+                                                                "key": "bookmark_id",
+                                                                "value": "<integer>",
+                                                                "description": "(Required) "
+                                                            },
+                                                            {
+                                                                "id": "fbfcef0c-3698-4157-ac2c-289bb5b50cd7",
+                                                                "key": "tag_id",
+                                                                "value": "<integer>",
+                                                                "description": "(Required) "
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "response": [
+                                                    {
+                                                        "id": "460a9337-4417-47c2-9272-15be2d648f63",
+                                                        "name": "Successful Response",
+                                                        "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                                {
+                                                                    "key": "Accept",
+                                                                    "value": "application/json"
+                                                                }
+                                                            ],
+                                                            "url": {
+                                                                "raw": "{{baseUrl}}/bookmarks/:bookmark_id/tags/:tag_id",
+                                                                "host": [
+                                                                    "{{baseUrl}}"
+                                                                ],
+                                                                "path": [
+                                                                    "bookmarks",
+                                                                    ":bookmark_id",
+                                                                    "tags",
+                                                                    ":tag_id"
+                                                                ],
+                                                                "variable": [
+                                                                    {
+                                                                        "key": "bookmark_id"
+                                                                    },
+                                                                    {
+                                                                        "key": "tag_id"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "status": "OK",
+                                                        "code": 200,
+                                                        "_postman_previewlanguage": "json",
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "cookie": [],
+                                                        "responseTime": null,
+                                                        "body": "{}",
+                                                        "uid": "25376308-460a9337-4417-47c2-9272-15be2d648f63"
+                                                    },
+                                                    {
+                                                        "id": "62eaee99-0f05-4963-83ba-0c9ba4c559b7",
+                                                        "name": "Validation Error",
+                                                        "originalRequest": {
+                                                            "method": "DELETE",
+                                                            "header": [
+                                                                {
+                                                                    "key": "Accept",
+                                                                    "value": "application/json"
+                                                                }
+                                                            ],
+                                                            "url": {
+                                                                "raw": "{{baseUrl}}/bookmarks/:bookmark_id/tags/:tag_id",
+                                                                "host": [
+                                                                    "{{baseUrl}}"
+                                                                ],
+                                                                "path": [
+                                                                    "bookmarks",
+                                                                    ":bookmark_id",
+                                                                    "tags",
+                                                                    ":tag_id"
+                                                                ],
+                                                                "variable": [
+                                                                    {
+                                                                        "key": "bookmark_id"
+                                                                    },
+                                                                    {
+                                                                        "key": "tag_id"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                                        "code": 422,
+                                                        "_postman_previewlanguage": "json",
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "cookie": [],
+                                                        "responseTime": null,
+                                                        "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                                        "uid": "25376308-62eaee99-0f05-4963-83ba-0c9ba4c559b7"
+                                                    }
+                                                ],
+                                                "uid": "25376308-50f20c3c-7cdc-483d-b6dd-f672ddcd9578"
+                                            }
+                                        ],
+                                        "id": "504c9a51-b0de-45e9-9e66-f20fe1abd4e3",
+                                        "uid": "25376308-504c9a51-b0de-45e9-9e66-f20fe1abd4e3"
+                                    }
+                                ],
+                                "id": "d53d95ef-db21-462f-b7c8-e91bdbd25439",
+                                "uid": "25376308-d53d95ef-db21-462f-b7c8-e91bdbd25439"
+                            },
+                            {
+                                "name": "Update Bookmark",
+                                "event": [
+                                    {
+                                        "listen": "test",
+                                        "script": {
+                                            "id": "27e9bd14-7220-4af8-9ee9-70f9fc388aad",
+                                            "exec": [
+                                                "pm.test(\"Status code is 200\", function () {",
+                                                "    pm.response.to.have.status(200);",
+                                                "});",
+                                                "pm.test(\"Body matches string\", function () {",
+                                                "    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
+                                                "});",
+                                                "pm.test(\"Your test name\", function () {",
+                                                "    var jsonData = pm.response.json();",
+                                                "    pm.expect(jsonData.value).to.eql(100);",
+                                                "});"
+                                            ],
+                                            "type": "text/javascript",
+                                            "packages": {}
+                                        }
+                                    }
+                                ],
+                                "id": "fbfb5287-14c0-451f-9203-c2e0f83e546e",
+                                "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                },
+                                "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "headerFamily": "json",
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/bookmarks/:bookmark_id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "bookmarks",
+                                            ":bookmark_id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "id": "898ab3be-3f7e-46a6-823a-6613b5c4e9a9",
+                                                "key": "bookmark_id",
+                                                "value": "<integer>",
+                                                "description": "(Required) "
+                                            }
+                                        ]
+                                    }
+                                },
+                                "response": [
+                                    {
+                                        "id": "e1158107-e6ae-47ba-90d2-442b82b070f4",
+                                        "name": "Successful Response",
+                                        "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                },
+                                                {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": {
+                                                "mode": "raw",
+                                                "raw": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                                "options": {
+                                                    "raw": {
+                                                        "headerFamily": "json",
+                                                        "language": "json"
+                                                    }
+                                                }
+                                            },
+                                            "url": {
+                                                "raw": "{{baseUrl}}/bookmarks/:bookmark_id",
+                                                "host": [
+                                                    "{{baseUrl}}"
+                                                ],
+                                                "path": [
+                                                    "bookmarks",
+                                                    ":bookmark_id"
+                                                ],
+                                                "variable": [
+                                                    {
+                                                        "key": "bookmark_id"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "status": "OK",
+                                        "code": 200,
+                                        "_postman_previewlanguage": "json",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "cookie": [],
+                                        "responseTime": null,
+                                        "body": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"date_created\": \"<dateTime>\",\n  \"description\": \"<string>\"\n}",
+                                        "uid": "25376308-e1158107-e6ae-47ba-90d2-442b82b070f4"
+                                    },
+                                    {
+                                        "id": "80ad6863-639d-4d5e-bae3-526f7da46a83",
+                                        "name": "Validation Error",
+                                        "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                },
+                                                {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": {
+                                                "mode": "raw",
+                                                "raw": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                                "options": {
+                                                    "raw": {
+                                                        "headerFamily": "json",
+                                                        "language": "json"
+                                                    }
+                                                }
+                                            },
+                                            "url": {
+                                                "raw": "{{baseUrl}}/bookmarks/:bookmark_id",
+                                                "host": [
+                                                    "{{baseUrl}}"
+                                                ],
+                                                "path": [
+                                                    "bookmarks",
+                                                    ":bookmark_id"
+                                                ],
+                                                "variable": [
+                                                    {
+                                                        "key": "bookmark_id"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                        "code": 422,
+                                        "_postman_previewlanguage": "json",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "cookie": [],
+                                        "responseTime": null,
+                                        "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                        "uid": "25376308-80ad6863-639d-4d5e-bae3-526f7da46a83"
+                                    }
+                                ],
+                                "uid": "25376308-fbfb5287-14c0-451f-9203-c2e0f83e546e"
+                            }
+                        ],
+                        "id": "b36e7cb2-f9ea-4e73-b73f-05d7b8592382",
+                        "uid": "25376308-b36e7cb2-f9ea-4e73-b73f-05d7b8592382"
+                    },
+                    {
+                        "name": "download",
+                        "item": [
+                            {
+                                "name": "Download Bookmarks",
+                                "id": "40d089a3-656b-47c2-bad3-6f7ee569ff8a",
+                                "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                },
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/bookmarks/download",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "bookmarks",
+                                            "download"
+                                        ]
+                                    }
+                                },
+                                "response": [
+                                    {
+                                        "id": "fff5e9ff-1f4b-42d1-880f-17c0d2886fdf",
+                                        "name": "Successful Response",
+                                        "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                                {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "url": {
+                                                "raw": "{{baseUrl}}/bookmarks/download",
+                                                "host": [
+                                                    "{{baseUrl}}"
+                                                ],
+                                                "path": [
+                                                    "bookmarks",
+                                                    "download"
+                                                ]
+                                            }
+                                        },
+                                        "status": "OK",
+                                        "code": 200,
+                                        "_postman_previewlanguage": "json",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "cookie": [],
+                                        "responseTime": null,
+                                        "body": "{}",
+                                        "uid": "25376308-fff5e9ff-1f4b-42d1-880f-17c0d2886fdf"
+                                    }
+                                ],
+                                "uid": "25376308-40d089a3-656b-47c2-bad3-6f7ee569ff8a"
+                            }
+                        ],
+                        "id": "7c6ddffe-449c-435d-929e-9d61e77b44e8",
+                        "uid": "25376308-7c6ddffe-449c-435d-929e-9d61e77b44e8"
+                    },
+                    {
+                        "name": "tags",
+                        "item": [
+                            {
+                                "name": "{tag_id}",
+                                "item": [
+                                    {
+                                        "name": "Get Bookmarks By Tag",
+                                        "id": "d361a23e-54f8-4faa-9ef9-d0df01dd2f54",
+                                        "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                        },
+                                        "request": {
+                                            "method": "GET",
+                                            "header": [
+                                                {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "url": {
+                                                "raw": "{{baseUrl}}/bookmarks/tags/:tag_id",
+                                                "host": [
+                                                    "{{baseUrl}}"
+                                                ],
+                                                "path": [
+                                                    "bookmarks",
+                                                    "tags",
+                                                    ":tag_id"
+                                                ],
+                                                "variable": [
+                                                    {
+                                                        "id": "f6515872-7bd0-4238-80d0-f62bd3c83d6a",
+                                                        "key": "tag_id",
+                                                        "value": "<integer>",
+                                                        "description": "(Required) "
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "response": [
+                                            {
+                                                "id": "dd9ec9f8-f07b-4b06-8427-3f2a13c509e4",
+                                                "name": "Successful Response",
+                                                "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                        {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "url": {
+                                                        "raw": "{{baseUrl}}/bookmarks/tags/:tag_id",
+                                                        "host": [
+                                                            "{{baseUrl}}"
+                                                        ],
+                                                        "path": [
+                                                            "bookmarks",
+                                                            "tags",
+                                                            ":tag_id"
+                                                        ],
+                                                        "variable": [
+                                                            {
+                                                                "key": "tag_id"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "status": "OK",
+                                                "code": 200,
+                                                "_postman_previewlanguage": "json",
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "cookie": [],
+                                                "responseTime": null,
+                                                "body": "[\n  {\n    \"url\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"date_created\": \"<dateTime>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"url\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"date_created\": \"<dateTime>\",\n    \"description\": \"<string>\"\n  }\n]",
+                                                "uid": "25376308-dd9ec9f8-f07b-4b06-8427-3f2a13c509e4"
+                                            },
+                                            {
+                                                "id": "f51ccb7f-2d26-4d8e-becc-b1810e90b916",
+                                                "name": "Validation Error",
+                                                "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                        {
+                                                            "key": "Accept",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "url": {
+                                                        "raw": "{{baseUrl}}/bookmarks/tags/:tag_id",
+                                                        "host": [
+                                                            "{{baseUrl}}"
+                                                        ],
+                                                        "path": [
+                                                            "bookmarks",
+                                                            "tags",
+                                                            ":tag_id"
+                                                        ],
+                                                        "variable": [
+                                                            {
+                                                                "key": "tag_id"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                                "code": 422,
+                                                "_postman_previewlanguage": "json",
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "cookie": [],
+                                                "responseTime": null,
+                                                "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                                "uid": "25376308-f51ccb7f-2d26-4d8e-becc-b1810e90b916"
+                                            }
+                                        ],
+                                        "uid": "25376308-d361a23e-54f8-4faa-9ef9-d0df01dd2f54"
+                                    }
+                                ],
+                                "id": "ae8deca5-9317-4006-85c7-5cf22937bea8",
+                                "uid": "25376308-ae8deca5-9317-4006-85c7-5cf22937bea8"
+                            }
+                        ],
+                        "id": "dda4ff4a-bd5b-45ef-bfd2-62fb87eac95e",
+                        "uid": "25376308-dda4ff4a-bd5b-45ef-bfd2-62fb87eac95e"
+                    },
+                    {
+                        "name": "Create Bookmark",
+                        "event": [
+                            {
+                                "listen": "test",
+                                "script": {
+                                    "id": "f07f7ea6-5561-4aba-841f-2d8788bb1468",
+                                    "exec": [
+                                        "pm.test(\"Status code is 200\", function () {",
+                                        "    pm.response.to.have.status(200);",
+                                        "});",
+                                        "pm.test(\"Body matches string\", function () {",
+                                        "    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
+                                        "});",
+                                        "pm.test(\"Your test name\", function () {",
+                                        "    var jsonData = pm.response.json();",
+                                        "    pm.expect(jsonData.value).to.eql(100);",
+                                        "});"
+                                    ],
+                                    "type": "text/javascript",
+                                    "packages": {}
+                                }
+                            }
+                        ],
+                        "id": "40faf72d-0555-4f56-a53f-e80408b8c342",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                "options": {
+                                    "raw": {
+                                        "headerFamily": "json",
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{baseUrl}}/bookmarks",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "bookmarks"
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "0232c312-ca0a-440a-8f47-9c98f2693b74",
+                                "name": "Successful Response",
+                                "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "headerFamily": "json",
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/bookmarks",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "bookmarks"
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"date_created\": \"<dateTime>\",\n  \"description\": \"<string>\"\n}",
+                                "uid": "25376308-0232c312-ca0a-440a-8f47-9c98f2693b74"
+                            },
+                            {
+                                "id": "ef4443e7-a6f2-41d7-9635-1b7796d6d209",
+                                "name": "Validation Error",
+                                "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "headerFamily": "json",
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/bookmarks",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "bookmarks"
+                                        ]
+                                    }
+                                },
+                                "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                "code": 422,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                "uid": "25376308-ef4443e7-a6f2-41d7-9635-1b7796d6d209"
+                            }
+                        ],
+                        "uid": "25376308-40faf72d-0555-4f56-a53f-e80408b8c342"
+                    },
+                    {
+                        "name": "Read Bookmarks",
+                        "event": [
+                            {
+                                "listen": "test",
+                                "script": {
+                                    "id": "8004baff-77c9-4f38-8653-523a0bcc43d6",
+                                    "exec": [
+                                        "pm.test(\"Status code is 200\", function () {",
+                                        "    pm.response.to.have.status(200);",
+                                        "});",
+                                        "pm.test(\"Body matches string\", function () {",
+                                        "    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
+                                        "});"
+                                    ],
+                                    "type": "text/javascript",
+                                    "packages": {}
+                                }
+                            }
+                        ],
+                        "id": "e4eacd76-622f-4dbe-a9fa-e3ec96743990",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{baseUrl}}/bookmarks?skip=0&limit=10",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "bookmarks"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "skip",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "key": "limit",
+                                        "value": "10"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "bc9f176f-0be2-4b4c-8d1a-6db34c88aa25",
+                                "name": "Successful Response",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/bookmarks?skip=0&limit=10",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "bookmarks"
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "skip",
+                                                "value": "0"
+                                            },
+                                            {
+                                                "key": "limit",
+                                                "value": "10"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "[\n  {\n    \"url\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"date_created\": \"<dateTime>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"url\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"date_created\": \"<dateTime>\",\n    \"description\": \"<string>\"\n  }\n]",
+                                "uid": "25376308-bc9f176f-0be2-4b4c-8d1a-6db34c88aa25"
+                            },
+                            {
+                                "id": "9643d9a0-8d5c-4440-af21-440853760528",
+                                "name": "Validation Error",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/bookmarks?skip=0&limit=10",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "bookmarks"
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "skip",
+                                                "value": "0"
+                                            },
+                                            {
+                                                "key": "limit",
+                                                "value": "10"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                "code": 422,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                "uid": "25376308-9643d9a0-8d5c-4440-af21-440853760528"
+                            }
+                        ],
+                        "uid": "25376308-e4eacd76-622f-4dbe-a9fa-e3ec96743990"
+                    }
+                ],
+                "id": "8a32afc8-199c-40d5-98a6-3beefc288acf",
+                "uid": "25376308-8a32afc8-199c-40d5-98a6-3beefc288acf"
+            },
+            {
+                "name": "tags",
+                "item": [
+                    {
+                        "name": "Create Tag",
+                        "id": "e2c605f6-741e-4368-aed5-14c52f8063f7",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n  \"name\": \"<string>\"\n}",
+                                "options": {
+                                    "raw": {
+                                        "headerFamily": "json",
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{baseUrl}}/tags",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "tags"
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "7db498a9-0711-4760-b8fe-6840aedb7e1d",
+                                "name": "Successful Response",
+                                "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"name\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "headerFamily": "json",
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/tags",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "tags"
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<integer>\"\n}",
+                                "uid": "25376308-7db498a9-0711-4760-b8fe-6840aedb7e1d"
+                            },
+                            {
+                                "id": "59ff8436-03ff-4d1b-aa85-bf2fa8bea769",
+                                "name": "Validation Error",
+                                "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"name\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "headerFamily": "json",
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/tags",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "tags"
+                                        ]
+                                    }
+                                },
+                                "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                "code": 422,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                "uid": "25376308-59ff8436-03ff-4d1b-aa85-bf2fa8bea769"
+                            }
+                        ],
+                        "uid": "25376308-e2c605f6-741e-4368-aed5-14c52f8063f7"
+                    },
+                    {
+                        "name": "Read Tags",
+                        "id": "9654d0b3-8c37-4f7e-83e3-ef3d6944c6ef",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{baseUrl}}/tags?skip=0&limit=10",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "tags"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "skip",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "key": "limit",
+                                        "value": "10"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "6cebb48f-e326-43c9-a694-ae9810c8c3fd",
+                                "name": "Successful Response",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/tags?skip=0&limit=10",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "tags"
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "skip",
+                                                "value": "0"
+                                            },
+                                            {
+                                                "key": "limit",
+                                                "value": "10"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "[\n  {\n    \"name\": \"<string>\",\n    \"id\": \"<integer>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"id\": \"<integer>\"\n  }\n]",
+                                "uid": "25376308-6cebb48f-e326-43c9-a694-ae9810c8c3fd"
+                            },
+                            {
+                                "id": "323e92cf-8934-4a7b-896f-c9ae4bc76f53",
+                                "name": "Validation Error",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/tags?skip=0&limit=10",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "tags"
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "skip",
+                                                "value": "0"
+                                            },
+                                            {
+                                                "key": "limit",
+                                                "value": "10"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                "code": 422,
+                                "_postman_previewlanguage": "json",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                                "uid": "25376308-323e92cf-8934-4a7b-896f-c9ae4bc76f53"
+                            }
+                        ],
+                        "uid": "25376308-9654d0b3-8c37-4f7e-83e3-ef3d6944c6ef"
+                    }
+                ],
+                "id": "c7579a5e-6c7c-4429-b07c-b88eb01feae3",
+                "uid": "25376308-c7579a5e-6c7c-4429-b07c-b88eb01feae3"
+            }
+        ],
+        "variable": [
+            {
+                "id": "661c56e2-0632-42d3-be59-901eb32cbaa5",
+                "key": "baseUrl",
+                "value": "/"
+            }
+        ]
+    }
+}
