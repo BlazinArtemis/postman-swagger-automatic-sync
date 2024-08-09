@@ -74,6 +74,10 @@ jobs:
           rm -rf postman_sync/old.json/
           rm -rf postman_sync/updated.json
 
+      - name: Install Pytest
+        run: |
+          pip install pytest
+          
       - name: Run Pytest
         run: |
           pytest --maxfail=1 --disable-warnings
