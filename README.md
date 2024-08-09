@@ -31,10 +31,10 @@ pip install postman-sync
 
 You can use the command line interface to synchronize your Postman collections with Swagger specifications.
 
-#### Sync a New Swagger Specification with a New Postman Collection
+#### Sync a New Swagger Specification
 
 ```sh
-postman-sync --link <url>/openapi.json --collection_id <secret_key>
+postman-sync --link <url>/openapi.json 
 ```
 
 #### Update an Existing Postman Collection
@@ -46,7 +46,7 @@ postman-sync --link <url>/openapi.json --collection_id <existing_collection_id>
 ### Example with Shortened Arguments
 
 ```sh
-postman-sync -u <url>/openapi.json -c <secret_key>
+postman-sync -u <url>/openapi.json -c <existing_collection_id>
 ```
 
 ## How to Run It
