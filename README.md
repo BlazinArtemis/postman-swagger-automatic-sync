@@ -16,6 +16,38 @@ This tool manages a list of Swagger JSON links, continuously checking for change
     - Tests from the old collection are transferred to the new collection.
     - The updated collection, containing both new endpoints and existing tests, is saved.
 
+## Installation
+
+### Install via PyPI
+
+The `postman_sync` tool is available as a Python package on PyPI. You can easily install it using `pip`:
+
+```sh
+pip install postman-sync
+```
+## Usage
+
+### Command Line Interface
+
+You can use the command line interface to synchronize your Postman collections with Swagger specifications.
+
+#### Sync a New Swagger Specification with a New Postman Collection
+
+```sh
+postman-sync --link <url>/openapi.json --collection_id <secret_key>
+```
+
+#### Update an Existing Postman Collection
+
+```sh
+postman-sync --link <url>/openapi.json --collection_id <existing_collection_id>
+```
+
+### Example with Shortened Arguments
+
+```sh
+postman-sync -u <url>/openapi.json -c <secret_key>
+```
 
 ## How to Run It
 
