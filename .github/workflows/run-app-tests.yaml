@@ -40,7 +40,7 @@ jobs:
 
       - name: Run First Command
         run: |
-          python main_script.py --link ${URL}/openapi.json --collection_id ${{ secrets.COLLECTION_ID }}
+          python postman_sync/main_script.py --link ${URL}/openapi.json --collection_id ${{ secrets.COLLECTION_ID }}
 
       - name: Stop main.py in v1
         run: |
@@ -57,7 +57,7 @@ jobs:
 
       - name: Run main_script.py Again
         run: |
-          python main_script.py
+          python postman_sync/main_script.py
 
       - name: Clear links.json
         run: |
@@ -65,14 +65,14 @@ jobs:
 
       - name: Run Final Command
         run: |
-          python main_script.py --link ${URL}/openapi.json
+          python postman_sync/main_script.py --link ${URL}/openapi.json
 
       - name: Clear All Files
         run: |
-          rm -rf links.json/
-          rm -rf new.json/ 
-          rm -rf old.json/
-          rm -rf updated.json
+          rm -rf postman_sync/links.json/
+          rm -rf postman_sync/new.json/ 
+          rm -rf postman_sync/old.json/
+          rm -rf postman_sync/updated.json
 
       - name: Run Pytest
         run: |
